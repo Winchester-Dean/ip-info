@@ -54,9 +54,4 @@ class Service:
 
             self.console.print(text)
         except Exception as error:
-            self.console.print(
-                "[bold white]Error:[/] "
-                f"[bold red]{error}[/]"
-            )
-            exit()
-
+            exit(error)
