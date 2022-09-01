@@ -6,13 +6,13 @@ from rich.console import Console
 class Main(Service):
     def __init__(self):
         self.console = Console()
-        self.clear()
 
     def start(self):
         try:
             while True:
                 ip = self.console.input(
-                    "[bold white]Enter ip address: "
+                    "[bold white]"
+                    "Enter ip address: "
                 )
                 print()
 
@@ -20,18 +20,7 @@ class Main(Service):
         except KeyboardInterrupt:
             exit("Bye!")
         except Exception as error:
-            self.console.print(
-                "[bold white]Error:[/] "
-                f"[bold red]{error}[/]"
-            )
-            exit()
-
-    @staticmethod
-    def clear():
-        if os.name == "nt":
-            os.system("cls")
-        else:
-            os.system("clear")
+            exit(error)
 
 if __name__ == "__main__":
     Main().start()
